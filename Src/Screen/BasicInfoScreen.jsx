@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useDispatch } from "react-redux";
-import { setBasicInfo } from "./Redux/EmployeeSlice";
+import { setBasicInfo } from "../../Redux/EmployeeSlice";
 
 const BasicInfoScreen = ({ navigation }) => {
   const dispatch = useDispatch();

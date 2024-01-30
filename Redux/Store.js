@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import EmployeeApi from "./EmployeeApi";
-import EmployeeReducer from "./EmployeeSlice";
+import EmployeeReducer from "../Redux/EmployeeSlice";
 const Store = configureStore({
   reducer: {
     [EmployeeApi.reducerPath]: EmployeeApi.reducer,

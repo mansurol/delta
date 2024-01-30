@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useDispatch } from "react-redux";
-import { setSkills } from "./Redux/EmployeeSlice";
+import { setSkills } from "../../Redux/EmployeeSlice";
 
 const SkillsScreen = ({ navigation }) => {
   const [skillName, setSkillName] = useState("");

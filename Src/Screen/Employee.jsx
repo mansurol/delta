@@ -14,7 +14,7 @@ import {
 import {
   useGetEmployeeQuery,
   useUpdateEmployeeMutation,
-} from "./Redux/EmployeeApi";
+} from "../../Redux/EmployeeApi";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Employee = ({ navigation }) => {

@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import { useSelector } from "react-redux";
-import { useCreateEmployeeMutation } from "./Redux/EmployeeApi";
+import { useCreateEmployeeMutation } from "../../Redux/EmployeeApi";
 
 const PreviewScreen = ({ navigation }) => {
   const basicInfo = useSelector((state) => state.EmployeeReducer.basicInfo);
