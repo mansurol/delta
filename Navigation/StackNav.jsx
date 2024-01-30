@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Employee from "../Src/Screen/Employee";
 import Authentication from "../Src/Screen/Authentication";
 import PreviewScreen from "../Src/Screen/PreviewScreen";
+import SuccessMessage from "../Src/Screen/SuccessMessage";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ export default function StackNav() {
         <Stack.Screen
           name="Preview Information"
           component={PreviewScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SuccessMessage"
+          component={SuccessMessage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -34,7 +34,7 @@ const Employee = ({ navigation }) => {
     setEditedEmployee({
       id: employee.id,
       name: employee.employee_name || "",
-      salary: String(employee.employee_salary), // Convert to string
+      salary: String(employee.employee_salary),
       age: String(employee.employee_age),
     });
     setEditModalVisible(true);
@@ -57,28 +57,30 @@ const Employee = ({ navigation }) => {
 
       console.log("Update response:", response);
 
-      // Close the modal
       closeEditModal();
     } catch (error) {
       console.error("Failed to update employee:", error);
 
-      // Check if the error is a 429 response and retry after a delay
       if (error.status === 429 && retryCount > 0) {
         console.log("Rate limit exceeded. Retrying after a delay...");
 
-        // Retry after 5 seconds (adjust as needed)
         setTimeout(() => {
           saveChanges(retryCount - 1);
         }, 5000);
       } else {
-        // Handle other errors
-        // You might want to display an error message to the user
       }
     }
   };
 
   if (isLoading) {
-    return <ActivityIndicator size="large" color="#0000ff" />;
+    return (
+      <ActivityIndicator
+        size="large"
+        color="#0000ff"
+        alignItems="center"
+        justifyContent="center"
+      />
+    );
   }
 
   if (error) {
@@ -111,7 +113,7 @@ const Employee = ({ navigation }) => {
   );
 
   return (
-    <View style={{ marginBottom: 100 }}>
+    <View style={{ marginBottom: 100, marginTop: 30 }}>
       <View
         style={{
           flexDirection: "row",

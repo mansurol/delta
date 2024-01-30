@@ -22,11 +22,9 @@ const SkillsScreen = ({ navigation }) => {
       return;
     }
 
-    // Dispatch the setSkills action to store the skills in the Redux store
     dispatch(setSkills({ skillName, experience, skillLevel }));
 
-    // Perform additional actions or navigate to the next screen
-    navigation.navigate("Preview Information");
+    navigation.navigate("SuccessMessage");
   };
 
   return (
@@ -45,7 +43,6 @@ const SkillsScreen = ({ navigation }) => {
         onChangeText={setExperience}
       />
 
-      {/* Skill Level Radio Buttons */}
       <Text style={styles.radioLabel}>Skill Level:</Text>
       <View style={styles.radioContainer}>
         <TouchableOpacity
@@ -79,7 +76,6 @@ const SkillsScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-      {/* Next Button */}
       <TouchableOpacity style={styles.addButton} onPress={handleNext}>
         <Text style={styles.addButtonLabel}>Next</Text>
       </TouchableOpacity>

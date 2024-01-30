@@ -3,11 +3,12 @@ import {
   View,
   Text,
   TextInput,
-  Button,
   Alert,
   StyleSheet,
   TouchableOpacity,
   KeyboardAvoidingView,
+  Platform,
+  Dimensions,
 } from "react-native";
 
 const Authentication = ({ navigation }) => {
@@ -15,7 +16,6 @@ const Authentication = ({ navigation }) => {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // Simple form validation
     if (!username.trim() || !password.trim()) {
       Alert.alert(
         "Validation Error",
@@ -24,19 +24,18 @@ const Authentication = ({ navigation }) => {
       return;
     }
 
-    // Perform login logic (add your Authentication code here)
-
-    // Navigate to the "Employee" screen
     navigation.navigate("Employee");
 
-    // Reset the form fields
     setUsername("");
     setPassword("");
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding">
-      <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <View style={styles.innerContainer}>
         <Text style={styles.title}>Login</Text>
         <View style={styles.formContainer}>
           <TextInput
@@ -63,13 +62,17 @@ const Authentication = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: "center",
-    alignItems: "center",
     padding: 16,
-    marginTop: 50,
+  },
+  innerContainer: {
+    width: "100%",
+    maxWidth: 400,
+    alignSelf: "center",
   },
   title: {
-    fontSize: 24,
+    fontSize: Dimensions.get("window").width > 400 ? 32 : 24,
     marginBottom: 16,
     textAlign: "left",
   },
@@ -80,7 +83,8 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     width: "100%",
-    borderColor: "gray",
+    borderColor: "#fff",
+    backgroundColor: "#fff",
     borderWidth: 1,
     marginBottom: 16,
     paddingHorizontal: 8,

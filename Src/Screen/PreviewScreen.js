@@ -30,14 +30,11 @@ const PreviewScreen = ({ navigation }) => {
 
       const result = await createEmployee(employeeData).unwrap();
 
-      // Handle successful submission
       console.log("Employee created successfully:", result);
       navigation.navigate("Employee");
     } catch (err) {
-      // Handle error
       console.error("Error:", err);
 
-      // Check if the error includes a response with data
       if (err.response && err.response.data) {
         console.error("Error Response:", err.response.data);
       }
